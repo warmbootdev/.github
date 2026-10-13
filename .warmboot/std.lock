@@ -1,18 +1,20 @@
 {
-  "version": "v0.1.3",
-  "source": "0c2e2d8dd5993da7352f6271ad14f351a0b92027",
+  "version": "v0.1.4",
+  "source": "cbc2c1f4cca34857124403f070746f531601eb9a",
   "files": {
     ".editorconfig": "fcd620957c81ef75376ad56f4f2d3731597161e31aeeb9128c2950c2471e1aa0",
     ".gitattributes": "da4645486097750f4aecc94aea9b4f6385f874c49d599a71f966b25e746c552e",
-    ".github/workflows/std.yml": "5e417efd7bc961759f0ebe1196beb3d7da5282519373957a2a26e8e09042a9d7",
+    ".github/workflows/std.yml": "6bc0757fab5a78dba695ffb859abd13a5f437278150901ef18b017605717a5dc",
     ".gitignore": "a0bb8202d3e0b85cfc5aeb35dcc786a103e92841f39405da62fc4ce094e27adf",
     ".prettierignore": "27b0bb544ebac864e32c48c9c2097d7fac29eccecabbbaa9a3137610d09d7d2f",
     ".prettierrc.json": "50f18e0da6f2fcf8c135b4807e6376f147037b855e1fab8034924b031803e474",
     ".warmboot/README.md": "5bc0d75fb77c4460ceac348edf6c4fe38a289b5f0323a65cd5fcecfe21a310ac",
     ".warmboot/hooks/commit-msg": "88f3dee7683fc94fe34d3d97c33e35a5b6d4be570b282b6e2e65bd698a686402",
     ".warmboot/hooks/pre-push": "ea4b31ad676f2f8f6f9722b7d1d4b54267241ff931a0d3e50e6222671c3f5892",
+    ".warmboot/modules/base/bin/check-attribution.sh": "fc4025852733b6f3eecc1208f8492f21df46dfd64850bf093de037d1c3ee15d9",
     ".warmboot/modules/base/bin/check-commits.sh": "080a7bc7875dc92c2a37039d14395c93da23dbd6b81958c37f692bb32ba2d26e",
     ".warmboot/modules/base/checks/actionlint.sh": "28b955fccf00108201c156f70f8f4b9d8bff0336d52b8f6c7ebafa2d9a4009ba",
+    ".warmboot/modules/base/checks/attribution.sh": "f5f7ad93071a2c739a58a212cd59e5882bc2e6e7074758a763555a9318a7ea1a",
     ".warmboot/modules/base/checks/commits.sh": "1e3940cf4cedae08221ea9859e11ed915dbf137833ebd8ebdc44a7c1ec56558a",
     ".warmboot/modules/base/checks/prettier.sh": "dd9d6eb0a8e8f2e88b0e1cad654e762354d5d156e149c6999dd841cc645cb39e",
     ".warmboot/modules/base/checks/secrets.sh": "c45168f5538417b10acfecb7464f1bf0d7dec7527d0d1813123f99dbe8204cee",
@@ -24,8 +26,8 @@
     ".warmboot/modules/base/fragments/prettierrc.json": "454e2abb47508538b883c7949f756c9aeef99a97ef3120fa855e6a62ef31cfb4",
     ".warmboot/modules/base/gitleaks.toml": "f20a4f49081d851600179219086a42e939dd965765a26673ddfd2ccddc10b050",
     ".warmboot/modules/base/lib/tool.sh": "224e74bba47faade264357a3fd71d96369329a5dd1890155941bd6fc0d1713da",
-    ".warmboot/modules/base/module.toml": "b9529f03e40e4611ce22596c2a039f9bcee141509fb45c8249c41d57206625ba",
+    ".warmboot/modules/base/module.toml": "6ff8220a26dcf06052913e5103a6bba2cd9eac6fcccf503416923d042d1fad19",
     ".warmboot/prettier-packages": "608ae4ceb9d77a4c5fecfe7851f64006ccbd9b859d43ee2b33dba6010723bcff",
-    ".warmboot/std.py": "4c8c2d60b4d487b3a03c1b83ee2fe392a0e04e305d45f4636038580ba389f24f"
+    ".warmboot/std.py": "f9498b4cd9daf719bde93eb4fadd048a5d6a1ff667d425e63b1dd8673b631b27"
   }
 }

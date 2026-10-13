@@ -3,6 +3,11 @@ description = "Every repository: editorconfig, git attributes and ignores, prett
 [checks.commits]
 script = "checks/commits.sh"
 
+# Policy, not style: blocks during rollout too, and no repository can skip it.
+[checks.attribution]
+script = "checks/attribution.sh"
+always = true
+
 [checks.prettier]
 script = "checks/prettier.sh"
 

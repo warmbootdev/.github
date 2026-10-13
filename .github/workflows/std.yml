@@ -26,4 +26,5 @@ jobs:
           STD_BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
           STD_HEAD: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
           STD_PR_TITLE: ${{ github.event.pull_request.title }}
+          STD_PR_BODY: ${{ github.event.pull_request.body }}
         run: python3 .warmboot/std.py check --ci

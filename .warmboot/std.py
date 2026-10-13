@@ -151,6 +151,7 @@ class Check:
     name: str
     script: str  # relative to the module directory
     when: list[str]
+    always: bool = False  # blocks even with enforce = false, and cannot be skipped
 
 
 @dataclass
@@ -165,7 +166,13 @@ class Module:
     def load(cls, path: Path) -> Module:
         meta = tomllib.loads((path / "module.toml").read_text())
         checks = [
-            Check(path.name, name, spec["script"], list(spec.get("when", ["pre-push", "ci"])))
+            Check(
+                path.name,
+                name,
+                spec["script"],
+                list(spec.get("when", ["pre-push", "ci"])),
+                bool(spec.get("always", False)),
+            )
             for name, spec in meta.get("checks", {}).items()
         ]
         return cls(path.name, path, meta.get("description", ""), meta.get("requires", []), checks)
@@ -444,6 +451,7 @@ class Result:
     name: str
     ok: bool
     detail: str = ""
+    always: bool = False
 
 
 def integrity(root: Path, manifest: Manifest) -> list[Result]:
@@ -584,17 +592,15 @@ def run_checks(
             env[f"STD_{mod.upper()}_{k.upper().replace('-', '_')}"] = str(v)
     for m in modules:
         for c in m.checks:
-            if c.name in manifest.skip or when not in c.when or (only and c.name not in only):
+            skipped = c.name in manifest.skip and not c.always
+            if skipped or when not in c.when or (only and c.name not in only):
                 continue
             print(f"::group::{c.name}" if when == "ci" else f"--- {c.name}", flush=True)
             r = subprocess.run(["bash", str(vendored / m.name / c.script)], cwd=root, env=env)
             if when == "ci":
                 print("::endgroup::", flush=True)
-            out.append(
-                Result(
-                    c.name, r.returncode == 0, "" if r.returncode == 0 else f"exit {r.returncode}"
-                )
-            )
+            detail = "" if r.returncode == 0 else f"exit {r.returncode}"
+            out.append(Result(c.name, r.returncode == 0, detail, c.always))
     return out
 
 
@@ -607,13 +613,15 @@ def report(results: list[Result], enforce: bool, ci: bool) -> int:
                 print(f"      {line}")
     if not failed:
         return 0
+    blocking = [r for r in failed if enforce or r.always]
     if ci:
-        level = "error" if enforce else "warning"
         for r in failed:
+            level = "error" if r in blocking else "warning"
             msg = (r.detail or "failed").replace("\n", "%0A")
             print(f"::{level} title=std: {r.name}::{msg}")
-    if enforce:
-        print(f"std: {len(failed)} check(s) failed", file=sys.stderr)
+    if blocking:
+        names = ", ".join(r.name for r in blocking)
+        print(f"std: {len(failed)} check(s) failed; blocking: {names}", file=sys.stderr)
         return 1
     print(
         f"std: {len(failed)} check(s) failed -- reported only (enforce = false in {MANIFEST})",
@@ -646,6 +654,10 @@ def cmd_hook(args) -> None:
     if (root / MANIFEST).exists():
         manifest = Manifest.load(root)
         if args.name == "commit-msg":
+            # AI attribution is refused outright, whatever enforce says.
+            guard = root / DIR / "modules/base/bin/check-attribution.sh"
+            if subprocess.run(["bash", str(guard), "--file", args.args[0]], cwd=root).returncode:
+                status = 1
             script = root / DIR / "modules/base/bin/check-commits.sh"
             r = subprocess.run(["bash", str(script), "--file", args.args[0]], cwd=root)
             if r.returncode != 0:
@@ -708,7 +720,7 @@ def main() -> None:
     sub = p.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("init", help="write .warmboot/std.toml and install")
     s.add_argument("--modules", default="")
-    s.add_argument("--version", default="v0.1.3")
+    s.add_argument("--version", default="v0.1.4")
     s.add_argument("--source", help="a standards checkout instead of the release tag")
     s.add_argument("--adopt", action="store_true", help="take over existing root config files")
     s.add_argument("--force", action="store_true")
