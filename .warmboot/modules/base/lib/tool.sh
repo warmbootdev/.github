@@ -14,7 +14,9 @@ tool() {
   fi
 }
 
-# tracked PATHSPEC...: files git tracks or would track, minus std's own.
+# tracked PATHSPEC...: files git tracks or would track, minus std's own. Filtered
+# afterwards rather than with an exclude pathspec: git 2.43 returns nothing when
+# every positive pathspec shares a directory (.github/workflows/) and one is excluded.
 tracked() {
-  git ls-files --cached --others --exclude-standard -- "$@" ':!:.warmboot/**'
+  git ls-files --cached --others --exclude-standard -- "$@" | grep -v '^\.warmboot/' || true
 }
