@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Prettier at the versions the standards pin (.warmboot/prettier-packages), over
-# everything .gitignore and .prettierignore leave in. Installed into a cache, never
+# the files git tracks, minus .prettierignore. Installed into a cache, never
 # a devDependency: adding one regenerates lockfiles, and a lockfile resolved on
 # arm64 drops the amd64 native packages images need.
 set -euo pipefail
@@ -20,5 +20,12 @@ mapfile -t plugin_args < <(CACHE="$cache" node -e '
   delete cfg.plugins;
   fs.writeFileSync(path.join(process.env.CACHE, "config.json"), JSON.stringify(cfg));
 ')
-"$cache/node_modules/.bin/prettier" --config "$cache/config.json" "${plugin_args[@]}" \
-  --ignore-path .gitignore --ignore-path .prettierignore --check --log-level warn .
+# The files git would track -- every .gitignore, nested ones included, which
+# prettier's own --ignore-path cannot see -- then .prettierignore on top.
+mapfile -d '' files < <(git ls-files -z --cached --others --exclude-standard -- ':!:.warmboot/**')
+if ((${#files[@]} == 0)); then
+  echo "no files"
+  exit 0
+fi
+printf '%s\0' "${files[@]}" | xargs -0 "$cache/node_modules/.bin/prettier" --config "$cache/config.json" \
+  "${plugin_args[@]}" --ignore-path .prettierignore --ignore-unknown --check --log-level warn

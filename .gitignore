@@ -19,3 +19,13 @@
 *.swp
 *.swo
 *~
+
+# ---- std: its own files are always tracked ----
+!/.warmboot/
+!/.warmboot/hooks/
+!/.warmboot/modules/
+!/.warmboot/modules/base/
+!/.warmboot/modules/base/bin/
+!/.warmboot/modules/base/checks/
+!/.warmboot/modules/base/fragments/
+!/.warmboot/modules/base/lib/
