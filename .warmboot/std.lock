@@ -1,11 +1,11 @@
 {
-  "version": "v0.1.4",
-  "source": "cbc2c1f4cca34857124403f070746f531601eb9a",
+  "version": "v0.1.8",
+  "source": "cc819dadd029b486271f176a8993600a3cc8e339",
   "files": {
     ".editorconfig": "fcd620957c81ef75376ad56f4f2d3731597161e31aeeb9128c2950c2471e1aa0",
     ".gitattributes": "da4645486097750f4aecc94aea9b4f6385f874c49d599a71f966b25e746c552e",
     ".github/workflows/std.yml": "6bc0757fab5a78dba695ffb859abd13a5f437278150901ef18b017605717a5dc",
-    ".gitignore": "a0bb8202d3e0b85cfc5aeb35dcc786a103e92841f39405da62fc4ce094e27adf",
+    ".gitignore": "472288fe2b545fb2c9b3ea1773bb14134153885418c3d27c775a047274291a60",
     ".prettierignore": "27b0bb544ebac864e32c48c9c2097d7fac29eccecabbbaa9a3137610d09d7d2f",
     ".prettierrc.json": "50f18e0da6f2fcf8c135b4807e6376f147037b855e1fab8034924b031803e474",
     ".warmboot/README.md": "5bc0d75fb77c4460ceac348edf6c4fe38a289b5f0323a65cd5fcecfe21a310ac",
@@ -16,7 +16,7 @@
     ".warmboot/modules/base/checks/actionlint.sh": "28b955fccf00108201c156f70f8f4b9d8bff0336d52b8f6c7ebafa2d9a4009ba",
     ".warmboot/modules/base/checks/attribution.sh": "f5f7ad93071a2c739a58a212cd59e5882bc2e6e7074758a763555a9318a7ea1a",
     ".warmboot/modules/base/checks/commits.sh": "1e3940cf4cedae08221ea9859e11ed915dbf137833ebd8ebdc44a7c1ec56558a",
-    ".warmboot/modules/base/checks/prettier.sh": "dd9d6eb0a8e8f2e88b0e1cad654e762354d5d156e149c6999dd841cc645cb39e",
+    ".warmboot/modules/base/checks/prettier.sh": "104ed609d5db48a2f4e7704d453e72d7aa2d3d7779c352960d406477d8f2fd99",
     ".warmboot/modules/base/checks/secrets.sh": "c45168f5538417b10acfecb7464f1bf0d7dec7527d0d1813123f99dbe8204cee",
     ".warmboot/modules/base/fragments/editorconfig": "6c1913610992d3c1377e77c670b3e38c7d2cc70db34c537ea2a5e6532af4bb32",
     ".warmboot/modules/base/fragments/gitattributes": "6395707c4464d627c1df8f2bb457983a90d366f6ac09f2f6feb9cdbd9cac88fe",
@@ -28,6 +28,6 @@
     ".warmboot/modules/base/lib/tool.sh": "224e74bba47faade264357a3fd71d96369329a5dd1890155941bd6fc0d1713da",
     ".warmboot/modules/base/module.toml": "6ff8220a26dcf06052913e5103a6bba2cd9eac6fcccf503416923d042d1fad19",
     ".warmboot/prettier-packages": "608ae4ceb9d77a4c5fecfe7851f64006ccbd9b859d43ee2b33dba6010723bcff",
-    ".warmboot/std.py": "f9498b4cd9daf719bde93eb4fadd048a5d6a1ff667d425e63b1dd8673b631b27"
+    ".warmboot/std.py": "95286ebe96fc0dad4030a97c248a4f9db21acacbc1b9534425f98dbae8e95a5b"
   }
 }

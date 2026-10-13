@@ -239,7 +239,9 @@ def local_path(path: str, kind: str) -> str:
     return f"{path}.local"
 
 
-def compose(root: Path, modules: list[Module], version: str) -> dict[str, bytes]:
+def compose(
+    root: Path, modules: list[Module], version: str, owned: list[str] | None = None
+) -> dict[str, bytes]:
     """Every composed file's exact bytes, from module fragments and the repo's .local files."""
     out: dict[str, bytes] = {}
     for frag, (path, kind) in COMPOSED.items():
@@ -268,6 +270,12 @@ def compose(root: Path, modules: list[Module], version: str) -> dict[str, bytes]
             chunks.append(f"\n# ---- {name} ----\n{text.rstrip()}\n")
         if local.exists():
             chunks.append(f"\n# ---- {local.name} ----\n{local.read_text().rstrip()}\n")
+        if path == ".gitignore" and owned:
+            # Last, so no directory pattern above (a module's bin/, say) keeps std's
+            # own files out of git: re-include exactly the directories they are in.
+            dirs = sorted({str(p) for f in owned for p in Path(f).parents if str(p) != "."})
+            lines = "".join(f"!/{d}/\n" for d in dirs)
+            chunks.append(f"\n# ---- std: its own files are always tracked ----\n{lines}")
         out[path] = "".join(chunks).encode()
     return out
 
@@ -340,7 +348,8 @@ def planned_files(root: Path, source: Path, manifest: Manifest) -> dict[str, byt
     for m in modules:
         for f in module_files(source, m.path):
             files[f"{DIR}/modules/{m.name}/{f.relative_to(m.path)}"] = f.read_bytes()
-    files.update(compose(root, modules, manifest.version))
+    vendored = [p for p in files if p.startswith(f"{DIR}/")]
+    files.update(compose(root, modules, manifest.version, vendored))
     if manifest.workflow:
         files[WORKFLOW] = render_workflow(source, manifest, manifest.version)
     return files
@@ -481,7 +490,8 @@ def integrity(root: Path, manifest: Manifest) -> list[Result]:
         stale.append(f"{MANIFEST} lists modules that are not installed: {', '.join(missing)}")
     if not stale:
         modules = resolve(vendored, manifest.modules)
-        for path, data in compose(root, modules, manifest.version).items():
+        vendored = [p for p in owned if p.startswith(f"{DIR}/")]
+        for path, data in compose(root, modules, manifest.version, vendored).items():
             p = root / path
             if not p.exists() or p.read_bytes() != data:
                 stale.append(f"{path} is out of date with its .local file")
@@ -543,6 +553,21 @@ def joins(root: Path, manifest: Manifest) -> list[Result]:
                 f'add <Import Project="$(MSBuildThisFileDirectory){target}" /> to Directory.Build.props',
             )
         )
+    owned = list(read_lock(root).get("files", {}))
+    r = subprocess.run(
+        ["git", "-C", str(root), "check-ignore", "--no-index", "--stdin"],
+        input="\n".join(owned),
+        capture_output=True,
+        text=True,
+    )
+    ignored = r.stdout.split()
+    out.append(
+        Result(
+            "std files not gitignored",
+            not ignored,
+            "git ignores these, so they would never be committed: " + ", ".join(ignored),
+        )
+    )
     for hook in HOOKS:
         d = root / ".githooks.d" / hook
         if d.is_dir():
@@ -720,7 +745,7 @@ def main() -> None:
     sub = p.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("init", help="write .warmboot/std.toml and install")
     s.add_argument("--modules", default="")
-    s.add_argument("--version", default="v0.1.4")
+    s.add_argument("--version", default="v0.1.8")
     s.add_argument("--source", help="a standards checkout instead of the release tag")
     s.add_argument("--adopt", action="store_true", help="take over existing root config files")
     s.add_argument("--force", action="store_true")
