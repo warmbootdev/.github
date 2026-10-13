@@ -6,15 +6,15 @@ except `std.toml` is std's and is overwritten on the next sync.
 
 ## What is whose
 
-| Path                                                                                             | Owner                   | Edit?                            |
-| ------------------------------------------------------------------------------------------------ | ----------------------- | -------------------------------- |
-| `.warmboot/std.toml`                                                                             | this repository         | yes — then `sync`                |
-| `.warmboot/std.lock`, `std.py`, `hooks/`, `modules/`, `README.md`, `prettier-packages`           | std                     | no                               |
-| `.editorconfig`, `.gitignore`, `.gitattributes`, `.prettierignore`, `.github/workflows/std.yml` | std (composed)          | no — edit `<file>.local`         |
-| `.prettierrc.json`                                                                               | std (merged)            | no — edit `.prettierrc.local.json` |
-| `*.local`, `.prettierrc.local.json`                                                              | this repository         | yes — then `sync`                |
-| `.githooks.d/<hook>/*`                                                                           | this repository         | yes                              |
-| `ruff.toml` / `pyproject.toml`, `Directory.Build.props`                                          | this repository         | yes; keep the `extend` / `Import` |
+| Path                                                                                            | Owner           | Edit?                              |
+| ----------------------------------------------------------------------------------------------- | --------------- | ---------------------------------- |
+| `.warmboot/std.toml`                                                                            | this repository | yes — then `sync`                  |
+| `.warmboot/std.lock`, `std.py`, `hooks/`, `modules/`, `README.md`, `prettier-packages`          | std             | no                                 |
+| `.editorconfig`, `.gitignore`, `.gitattributes`, `.prettierignore`, `.github/workflows/std.yml` | std (composed)  | no — edit `<file>.local`           |
+| `.prettierrc.json`                                                                              | std (merged)    | no — edit `.prettierrc.local.json` |
+| `*.local`, `.prettierrc.local.json`                                                             | this repository | yes — then `sync`                  |
+| `.githooks.d/<hook>/*`                                                                          | this repository | yes                                |
+| `ruff.toml` / `pyproject.toml`, `Directory.Build.props`                                         | this repository | yes; keep the `extend` / `Import`  |
 
 std writes, overwrites and deletes only paths listed in `std.lock`. It refuses to
 sync over a hand-edited file of its own (`--force` discards the edit) or over a file
@@ -42,6 +42,10 @@ diff is everything the release changes here.
 - **A check that does not apply**: `[checks] skip = ["name"]` in `std.toml`. A name
   that is not a check is reported, not ignored.
 - **Module settings**: a `[<module>]` table in `std.toml` (e.g. `[dotnet] solution`).
+- **`[dotnet] props-dir = "src"`**: when image builds use that directory as their context
+  (so they cannot see `.warmboot/`), std also writes `src/Warmboot.Build.props`, and
+  `src/Directory.Build.props` imports it: `<Import Project="$(MSBuildThisFileDirectory)Warmboot.Build.props" />`.
+  Dockerfiles copy it with `Directory.Build.props`.
 - **Extra hook steps**: executables in `.githooks.d/commit-msg/` or
   `.githooks.d/pre-push/`, run in name order after std's checks. These always count;
   std's own checks block only when `enforce = true`.

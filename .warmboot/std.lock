@@ -1,6 +1,6 @@
 {
-  "version": "v0.1.9",
-  "source": "841517288b31a0dc760ee0ab54dcdcd4b5528290",
+  "version": "v0.1.11",
+  "source": "e35367aef7e660efbae835f9fb9b0150a7055be2",
   "files": {
     ".editorconfig": "fcd620957c81ef75376ad56f4f2d3731597161e31aeeb9128c2950c2471e1aa0",
     ".gitattributes": "da4645486097750f4aecc94aea9b4f6385f874c49d599a71f966b25e746c552e",
@@ -8,7 +8,7 @@
     ".gitignore": "45871bd8a06509650f9dcecb6520883da04496752ffdae57446def569cecb79a",
     ".prettierignore": "27b0bb544ebac864e32c48c9c2097d7fac29eccecabbbaa9a3137610d09d7d2f",
     ".prettierrc.json": "50f18e0da6f2fcf8c135b4807e6376f147037b855e1fab8034924b031803e474",
-    ".warmboot/README.md": "5bc0d75fb77c4460ceac348edf6c4fe38a289b5f0323a65cd5fcecfe21a310ac",
+    ".warmboot/README.md": "d5b22da5bfc960d783cc8768a812437e699c4a161f0c694edf0ac2d7c69191f6",
     ".warmboot/hooks/commit-msg": "88f3dee7683fc94fe34d3d97c33e35a5b6d4be570b282b6e2e65bd698a686402",
     ".warmboot/hooks/pre-push": "ea4b31ad676f2f8f6f9722b7d1d4b54267241ff931a0d3e50e6222671c3f5892",
     ".warmboot/modules/base/bin/check-attribution.sh": "fc4025852733b6f3eecc1208f8492f21df46dfd64850bf093de037d1c3ee15d9",
@@ -28,7 +28,7 @@
     ".warmboot/modules/base/lib/tool.sh": "7a776a4f62a208396dab73df8e0da58c64da7b2cb82d4352a3716305fe7ffe99",
     ".warmboot/modules/base/module.toml": "6ff8220a26dcf06052913e5103a6bba2cd9eac6fcccf503416923d042d1fad19",
     ".warmboot/prettier-packages": "608ae4ceb9d77a4c5fecfe7851f64006ccbd9b859d43ee2b33dba6010723bcff",
-    ".warmboot/std.py": "bed53e161c7bc20f1b7d99a0598300ea8e9c90956245c49cbcfc7ff7bb7a55dd",
+    ".warmboot/std.py": "d3b4717357ddd6cc28e0290ff27aa5d5610858db3045f703dde238475f230e49",
     ".warmboot/workflow/std.yml": "46c6bed2395cc7feda864452f8258ee101e087a0590a8b3307b09201e18180cb"
   }
 }
