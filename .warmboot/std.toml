@@ -1,7 +1,7 @@
 # The warmbootdev standards this repository follows. Yours to edit; run
 # `python3 .warmboot/std.py sync` afterwards. See .warmboot/README.md.
 
-version = "v0.1.2"
+version = "v0.1.3"
 modules = []
 
 # false: checks report problems but never block a commit, push or CI run.

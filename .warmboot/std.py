@@ -708,7 +708,7 @@ def main() -> None:
     sub = p.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("init", help="write .warmboot/std.toml and install")
     s.add_argument("--modules", default="")
-    s.add_argument("--version", default="v0.1.2")
+    s.add_argument("--version", default="v0.1.3")
     s.add_argument("--source", help="a standards checkout instead of the release tag")
     s.add_argument("--adopt", action="store_true", help="take over existing root config files")
     s.add_argument("--force", action="store_true")

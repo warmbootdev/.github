@@ -1,6 +1,6 @@
 {
-  "version": "v0.1.2",
-  "source": "d49fe6ac9fca1cb9101cf23ccf5252169517cca2",
+  "version": "v0.1.3",
+  "source": "0c2e2d8dd5993da7352f6271ad14f351a0b92027",
   "files": {
     ".editorconfig": "fcd620957c81ef75376ad56f4f2d3731597161e31aeeb9128c2950c2471e1aa0",
     ".gitattributes": "da4645486097750f4aecc94aea9b4f6385f874c49d599a71f966b25e746c552e",
@@ -14,7 +14,7 @@
     ".warmboot/modules/base/bin/check-commits.sh": "080a7bc7875dc92c2a37039d14395c93da23dbd6b81958c37f692bb32ba2d26e",
     ".warmboot/modules/base/checks/actionlint.sh": "28b955fccf00108201c156f70f8f4b9d8bff0336d52b8f6c7ebafa2d9a4009ba",
     ".warmboot/modules/base/checks/commits.sh": "1e3940cf4cedae08221ea9859e11ed915dbf137833ebd8ebdc44a7c1ec56558a",
-    ".warmboot/modules/base/checks/prettier.sh": "82bf650ada9f17bc303f7ddfa93ec294e3c92beca359fa5c1370014f25ff2640",
+    ".warmboot/modules/base/checks/prettier.sh": "dd9d6eb0a8e8f2e88b0e1cad654e762354d5d156e149c6999dd841cc645cb39e",
     ".warmboot/modules/base/checks/secrets.sh": "c45168f5538417b10acfecb7464f1bf0d7dec7527d0d1813123f99dbe8204cee",
     ".warmboot/modules/base/fragments/editorconfig": "6c1913610992d3c1377e77c670b3e38c7d2cc70db34c537ea2a5e6532af4bb32",
     ".warmboot/modules/base/fragments/gitattributes": "6395707c4464d627c1df8f2bb457983a90d366f6ac09f2f6feb9cdbd9cac88fe",
@@ -26,6 +26,6 @@
     ".warmboot/modules/base/lib/tool.sh": "224e74bba47faade264357a3fd71d96369329a5dd1890155941bd6fc0d1713da",
     ".warmboot/modules/base/module.toml": "b9529f03e40e4611ce22596c2a039f9bcee141509fb45c8249c41d57206625ba",
     ".warmboot/prettier-packages": "608ae4ceb9d77a4c5fecfe7851f64006ccbd9b859d43ee2b33dba6010723bcff",
-    ".warmboot/std.py": "021b084bc0231566e4c7786b0b848803bcb8eba9e26f144f86ad5d5170a103ba"
+    ".warmboot/std.py": "4c8c2d60b4d487b3a03c1b83ee2fe392a0e04e305d45f4636038580ba389f24f"
   }
 }
