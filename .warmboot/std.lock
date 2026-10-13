@@ -1,12 +1,12 @@
 {
-  "version": "v0.1.0",
-  "source": "ce5d4e0920be66a0600c4b764b8b01db3185d169",
+  "version": "v0.1.2",
+  "source": "d49fe6ac9fca1cb9101cf23ccf5252169517cca2",
   "files": {
-    ".editorconfig": "850c77477164cf9361f3d14cf2d2ff839e8c2f1d5e67a5ad0f083a329159e445",
-    ".gitattributes": "0b69db948605028a1acbdf49920e13e06c1948bfda9703b63bea000fb9e76be2",
-    ".github/workflows/std.yml": "6dc0c8328f44b728454949751faba5160eb5a7633ecf456016a749cf5e0fce16",
-    ".gitignore": "a33057a0326ec1b182cd513bb70b4eb0780691b94e483a49f59745c218d348af",
-    ".prettierignore": "7f0035699596394c58fa19944482957b641fbbc5569a28e555054c33b61be4c8",
+    ".editorconfig": "fcd620957c81ef75376ad56f4f2d3731597161e31aeeb9128c2950c2471e1aa0",
+    ".gitattributes": "da4645486097750f4aecc94aea9b4f6385f874c49d599a71f966b25e746c552e",
+    ".github/workflows/std.yml": "5e417efd7bc961759f0ebe1196beb3d7da5282519373957a2a26e8e09042a9d7",
+    ".gitignore": "a0bb8202d3e0b85cfc5aeb35dcc786a103e92841f39405da62fc4ce094e27adf",
+    ".prettierignore": "27b0bb544ebac864e32c48c9c2097d7fac29eccecabbbaa9a3137610d09d7d2f",
     ".prettierrc.json": "50f18e0da6f2fcf8c135b4807e6376f147037b855e1fab8034924b031803e474",
     ".warmboot/README.md": "5bc0d75fb77c4460ceac348edf6c4fe38a289b5f0323a65cd5fcecfe21a310ac",
     ".warmboot/hooks/commit-msg": "88f3dee7683fc94fe34d3d97c33e35a5b6d4be570b282b6e2e65bd698a686402",
@@ -26,6 +26,6 @@
     ".warmboot/modules/base/lib/tool.sh": "224e74bba47faade264357a3fd71d96369329a5dd1890155941bd6fc0d1713da",
     ".warmboot/modules/base/module.toml": "b9529f03e40e4611ce22596c2a039f9bcee141509fb45c8249c41d57206625ba",
     ".warmboot/prettier-packages": "608ae4ceb9d77a4c5fecfe7851f64006ccbd9b859d43ee2b33dba6010723bcff",
-    ".warmboot/std.py": "3378fee256306995c21a4df3f5850a90d9dab75ce242fa526a85b9c9caead299"
+    ".warmboot/std.py": "021b084bc0231566e4c7786b0b848803bcb8eba9e26f144f86ad5d5170a103ba"
   }
 }
