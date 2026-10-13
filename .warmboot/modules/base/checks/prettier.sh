@@ -22,7 +22,7 @@ mapfile -t plugin_args < <(CACHE="$cache" node -e '
 ')
 # The files git would track -- every .gitignore, nested ones included, which
 # prettier's own --ignore-path cannot see -- then .prettierignore on top.
-mapfile -d '' files < <(git ls-files -z --cached --others --exclude-standard -- ':!:.warmboot/**')
+mapfile -d '' files < <(git ls-files -z --cached --others --exclude-standard | grep -zv '^\.warmboot/' || true)
 if ((${#files[@]} == 0)); then
   echo "no files"
   exit 0
