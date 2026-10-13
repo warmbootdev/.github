@@ -1,0 +1,16 @@
+# Local state and credentials: never committed.
+.local/
+.env
+*.env
+!*.env.example
+!*.example.env
+*.key
+*.pem
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

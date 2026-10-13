@@ -1,0 +1,9 @@
+# gitleaks: the default rules, minus std's own files (std.lock is a page of
+# sha256 hashes, which look like keys). A repository with its own .gitleaks.toml
+# gets that instead; start it with [extend] path = ".warmboot/modules/base/gitleaks.toml".
+[extend]
+useDefault = true
+
+[allowlist]
+description = "std's vendored and generated files"
+paths = ['''^\.warmboot/''']

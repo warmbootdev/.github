@@ -1,0 +1,31 @@
+{
+  "version": "v0.1.0",
+  "source": "ce5d4e0920be66a0600c4b764b8b01db3185d169",
+  "files": {
+    ".editorconfig": "850c77477164cf9361f3d14cf2d2ff839e8c2f1d5e67a5ad0f083a329159e445",
+    ".gitattributes": "0b69db948605028a1acbdf49920e13e06c1948bfda9703b63bea000fb9e76be2",
+    ".github/workflows/std.yml": "6dc0c8328f44b728454949751faba5160eb5a7633ecf456016a749cf5e0fce16",
+    ".gitignore": "a33057a0326ec1b182cd513bb70b4eb0780691b94e483a49f59745c218d348af",
+    ".prettierignore": "7f0035699596394c58fa19944482957b641fbbc5569a28e555054c33b61be4c8",
+    ".prettierrc.json": "50f18e0da6f2fcf8c135b4807e6376f147037b855e1fab8034924b031803e474",
+    ".warmboot/README.md": "5bc0d75fb77c4460ceac348edf6c4fe38a289b5f0323a65cd5fcecfe21a310ac",
+    ".warmboot/hooks/commit-msg": "88f3dee7683fc94fe34d3d97c33e35a5b6d4be570b282b6e2e65bd698a686402",
+    ".warmboot/hooks/pre-push": "ea4b31ad676f2f8f6f9722b7d1d4b54267241ff931a0d3e50e6222671c3f5892",
+    ".warmboot/modules/base/bin/check-commits.sh": "080a7bc7875dc92c2a37039d14395c93da23dbd6b81958c37f692bb32ba2d26e",
+    ".warmboot/modules/base/checks/actionlint.sh": "28b955fccf00108201c156f70f8f4b9d8bff0336d52b8f6c7ebafa2d9a4009ba",
+    ".warmboot/modules/base/checks/commits.sh": "1e3940cf4cedae08221ea9859e11ed915dbf137833ebd8ebdc44a7c1ec56558a",
+    ".warmboot/modules/base/checks/prettier.sh": "82bf650ada9f17bc303f7ddfa93ec294e3c92beca359fa5c1370014f25ff2640",
+    ".warmboot/modules/base/checks/secrets.sh": "c45168f5538417b10acfecb7464f1bf0d7dec7527d0d1813123f99dbe8204cee",
+    ".warmboot/modules/base/fragments/editorconfig": "6c1913610992d3c1377e77c670b3e38c7d2cc70db34c537ea2a5e6532af4bb32",
+    ".warmboot/modules/base/fragments/gitattributes": "6395707c4464d627c1df8f2bb457983a90d366f6ac09f2f6feb9cdbd9cac88fe",
+    ".warmboot/modules/base/fragments/gitignore": "04f2f4475212e117fe77e31bea48966cef45fef370602a7731d6e1b4fed4e45f",
+    ".warmboot/modules/base/fragments/prettier-packages": "a2b8327ebd4a7f90b7f3da929d755f168591656783885bc986d88b2c8012292d",
+    ".warmboot/modules/base/fragments/prettierignore": "61fc7de4c4173fb8c3007a83245a898c866e55e3f072564b906d2f24df9e356f",
+    ".warmboot/modules/base/fragments/prettierrc.json": "454e2abb47508538b883c7949f756c9aeef99a97ef3120fa855e6a62ef31cfb4",
+    ".warmboot/modules/base/gitleaks.toml": "f20a4f49081d851600179219086a42e939dd965765a26673ddfd2ccddc10b050",
+    ".warmboot/modules/base/lib/tool.sh": "224e74bba47faade264357a3fd71d96369329a5dd1890155941bd6fc0d1713da",
+    ".warmboot/modules/base/module.toml": "b9529f03e40e4611ce22596c2a039f9bcee141509fb45c8249c41d57206625ba",
+    ".warmboot/prettier-packages": "608ae4ceb9d77a4c5fecfe7851f64006ccbd9b859d43ee2b33dba6010723bcff",
+    ".warmboot/std.py": "3378fee256306995c21a4df3f5850a90d9dab75ce242fa526a85b9c9caead299"
+  }
+}

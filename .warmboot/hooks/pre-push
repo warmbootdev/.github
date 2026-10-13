@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Managed by std (warmbootdev/standards). Repository steps go in .githooks.d/pre-push/.
+exec python3 "$(git rev-parse --show-toplevel)/.warmboot/std.py" hook pre-push "$@"

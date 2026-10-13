@@ -1,0 +1,13 @@
+description = "Every repository: editorconfig, git attributes and ignores, prettier for docs and config, conventional commits, workflow lint, secret scanning."
+
+[checks.commits]
+script = "checks/commits.sh"
+
+[checks.prettier]
+script = "checks/prettier.sh"
+
+[checks.actionlint]
+script = "checks/actionlint.sh"
+
+[checks.secrets]
+script = "checks/secrets.sh"

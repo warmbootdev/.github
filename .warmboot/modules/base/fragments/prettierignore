@@ -1,0 +1,10 @@
+# std's own files: vendored and generated, formatted upstream.
+.warmboot/
+.prettierrc.json
+.local/
+*.png
+*.jpg
+*.ico
+*.woff
+*.woff2
+*.crt
